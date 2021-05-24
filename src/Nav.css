@@ -1,0 +1,28 @@
+/* Header */
+
+.navbar-brand {
+    margin: 0 0 0 var(--spacing-1);
+    font-size: 2.5rem;
+}
+
+.navbar-brand:hover {
+  background-color: var(--hover);
+}
+
+.nav-item {
+  margin-right: var(--spacing-1);
+  text-align: center;
+}
+
+.nav-item:hover {
+  background-color: var(--hover);
+}
+     
+.header-nav {
+  display: flex;
+  flex-direction: row;
+}
+  
+.logo {
+  font-weight: 900;
+}
