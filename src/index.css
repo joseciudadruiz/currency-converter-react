@@ -31,3 +31,20 @@ h1, h2, h3, h4, h5, h5 {
   font-size: 3.8rem;
   color: var(--primary);
 }
+
+.no-style {
+  text-decoration: none;
+  color: inherit;
+}
+
+.no-style:hover {
+  color: var(--hover);
+}
+
+.contact-info, .home-intro {
+  min-height: 70vh;
+}
+
+.btn-dark {
+  margin-right: var(--spacing-1);
+}
