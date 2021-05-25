@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import {Home, About, Contact} from './Templates';
 import './Nav.css';
 
 const Header = () => {
@@ -17,6 +18,11 @@ const Header = () => {
                     </li>
                 </ul>
                 </nav>
+                <Switch>
+                    <Route path= '/' exact component={Home} />
+                    <Route path='/about/' component={About} />
+                    <Route path='/contact' component={Contact} />
+                </Switch>
             </div>
             
         </Router>
