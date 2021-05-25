@@ -1,0 +1,15 @@
+.form-component {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: auto;
+}
+
+
+@media (min-width: 768px) {
+    .form-currency {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    } 
+}
