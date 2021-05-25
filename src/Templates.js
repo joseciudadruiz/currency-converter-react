@@ -30,7 +30,9 @@ import {Link} from 'react-router-dom';
         return(
             <React.Fragment>
                 <Logo />
-                <h3 className="text-center">Welcome to the $Currency, <Link className="no-style" to='./CurrencyConverter'>click here to start</Link></h3>
+                <div className="home-intro">
+                    <h3 className="text-center">Welcome to the $Currency, <Link className="no-style" to='./CurrencyConverter'>click here to start</Link></h3>
+                </div>
             </React.Fragment>
         )
     }
