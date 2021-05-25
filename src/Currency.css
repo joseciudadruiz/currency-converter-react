@@ -1,0 +1,27 @@
+.form-component {
+    padding-top: 2rem;
+}
+.form-inline {
+    text-align: center;
+}
+
+.form-content  {
+    max-width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+@media (min-width: 768px) {
+    .form-inline {
+        display: flex;
+        align-items: center;
+        
+    }
+    .form-header {
+        padding-right: var(--spacing-1)
+    }
+     .form-inline select{
+        max-width: 40%;
+     }
+}

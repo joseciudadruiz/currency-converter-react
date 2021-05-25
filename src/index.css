@@ -8,20 +8,14 @@ html {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Varela Round', sans-serif;
   font-size: 1.8rem;
 
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h1, h2, h3, h4, h5, h5 {
+  font-family: 'Lora', serif;
 }
-
 /* vars */
 :root {
   --primary: rgb(30, 30, 30);
@@ -36,4 +30,21 @@ code {
   padding: var(--spacing-1);
   font-size: 3.8rem;
   color: var(--primary);
+}
+
+.no-style {
+  text-decoration: none;
+  color: inherit;
+}
+
+.no-style:hover {
+  color: var(--hover);
+}
+
+.contact-info, .home-intro {
+  min-height: 70vh;
+}
+
+.btn-dark {
+  margin-right: var(--spacing-1);
 }
