@@ -1,8 +1,9 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 const CurrencyList = (props) => {
-    const{fixed, rates} = props;
-    if(! rates) {
+    const{base, rates} = props;
+    if(!rates) {
         return null;
     }
 
@@ -11,14 +12,14 @@ const CurrencyList = (props) => {
             <thead>
                 <tr>
                     <th scope="col"></th>
-                    <th scope="col"className="text-right">1.00 {fixed}</th>
+                    <th scope="col"className="text-right">1.00 {base}</th>
                 </tr>
             </thead>
             <tbody>
                 {rates.map(currency => 
                     <tr key={currency.acronym}>
-                        <td className="">{currency.name}<small>({currency.acronym})</small></td>
-                        <td className="">{currency.rate.toFixed(6)}</td>
+                        <td className="text-right">{currency.name}<small>({currency.acronym})</small></td>
+                        <td className="text-right"><Link to={`/CurrencyConverter?base=${base}&quote=${currency.acronym}`}>{currency.rate.toFixed(6)}</Link></td>
                     </tr>)}
             </tbody>
         </table>
