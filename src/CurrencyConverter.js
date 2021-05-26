@@ -10,7 +10,7 @@ class CurrencyConverter extends React.Component {
 
 
         const params = new URLSearchParams(props.location.search);
-        console.log(params.get('base'), params.get('quote'));
+        // console.log(params.get('base'), params.get('quote'));
 
         this.state = {
             rate: 0,
@@ -30,7 +30,7 @@ class CurrencyConverter extends React.Component {
         this.getHistoricalRates(baseAcronym, quoteAcronym);
     }
 
-    getRate = (base,quote) => {
+    getRate = (base, quote) => {
         this.setState({loading: true});
         fetch(`https://altexchangerateapi.herokuapp.com/latest?from=${base}&to=${quote}`)
         .then(checkStatus)
@@ -117,31 +117,39 @@ class CurrencyConverter extends React.Component {
 
     changeBaseAcronym = (e) => {
         const baseAcronym = e.target.value;
-        this.setState({baseAcronym});
-        this.getRate(baseAcronym, this.state.quoteAcronym);
-        this.getHistoricalRates(baseAcronym, this.state.quoteAcronym);
+        if(baseAcronym !== this.state.quoteAcronym) {
+            this.setState({baseAcronym});
+            this.getRate(baseAcronym, this.state.quoteAcronym);
+            this.getHistoricalRates(baseAcronym, this.state.quoteAcronym);
+        } 
+        return;
+        
+        
     }
 
     changeBaseValue = (e) => {
-        const quoteValue =this.convert(e.target.value, this.state.rate, this.toQuote);
+        const quoteValue = this.convert(e.target.value, this.state.rate, this.toQuote);
         this.setState({
             baseValue: e.target.value,
-            quoteValue
+            quoteValue,
         });
     }
 
     changeQuoteAcronym = (e) => {
         const quoteAcronym = e.target.value;
-        this.setState({quoteAcronym});
-        this.getRate(this.state.baseAcronym, quoteAcronym);
-        this.getHistoricalRates(this.state.baseAcronym, this.state.quoteAcronym);
+        if(quoteAcronym !== this.state.baseAcronym) {
+            this.setState({quoteAcronym});
+            this.getRate(this.state.baseAcronym, quoteAcronym);
+            this.getHistoricalRates(this.state.baseAcronym, this.state.quoteAcronym);
+        }
+       return;
     }
 
     changeQuoteValue = (e) => {
         const baseValue = this.convert(e.target.value, this.state.rate, this.toBase);
         this.setState({
             quoteValue: e.target.value,
-            baseValue
+            baseValue,
         });
     }
 
@@ -152,7 +160,7 @@ class CurrencyConverter extends React.Component {
         return(
             <div className="container form-component text-center pt-2">
                 <h1 className="h3"><span className="logo">$</span>Currency</h1>
-                <h3>1 {baseAcronym} to {quoteAcronym} = {rate} {currencies[quoteAcronym].name}</h3>
+                <h3>1 {baseAcronym} to 1 {quoteAcronym} = {rate.toFixed(4)} {currencies[quoteAcronym].name} </h3>
                 <form className="form-row p-3 bg-light form-currency">
                     <div className="form-group">
                         <select value={baseAcronym} onChange={this.changeBaseAcronym} className="form-control form-control-lg mb-2" disabled={loading}>
